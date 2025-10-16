@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rhody Haven</title>
+  <link rel="icon" href="/logo.png" />
+  <meta name="description" content="Rhody Haven — a nonprofit PRTF in Rhode Island. Trauma-informed, family-centered care." />
+  <style>
+    :root{
+      --navy:#0B3A5B; --teal:#2AB3A6; --sea:#6ED0C6; --sand:#F1F5F9;
+      --ink:#0f172a; --muted:#475569; --border:#e2e8f0; --card:#ffffff;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{ margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Noto Sans";
+      color:var(--ink); background:var(--sand); -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
+    a{color:inherit}
+    .container{max-width:1120px;margin:0 auto;padding:0 16px}
+    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1rem;border-radius:1rem;text-decoration:none;font-weight:600}
+    .btn-primary{background:var(--teal);color:white}
+    .btn-primary:hover{background:var(--navy)}
+    .btn-outline{border:1px solid var(--sea);color:var(--teal);background:white}
+    .btn-outline:hover{border-color:var(--teal)}
+    .card{ background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px;box-shadow:0 8px 20px rgba(0,0,0,.03) }
+    .grid{display:grid;gap:20px}
+    .grid-2{grid-template-columns:1fr}
+    .grid-3{grid-template-columns:1fr}
+    .grid-4{grid-template-columns:1fr}
+    @media(min-width:768px){.grid-2{grid-template-columns:1fr 1fr}.grid-3{grid-template-columns:repeat(3,1fr)}}
+    @media(min-width:1024px){.grid-4{grid-template-columns:repeat(4,1fr)}}
+    .crisis{background:var(--sea);color:var(--navy);font-size:.95rem}
+    header{position:sticky;top:0;z-index:50;background:var(--navy);color:white;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+    .nav{display:flex;align-items:center;gap:12px}
+    .nav a{color:rgba(255,255,255,.9);text-decoration:none;font-weight:600;padding:6px 8px;border-radius:8px}
+    .nav a:hover{color:white}
+    .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+    .brand img{width:40px;height:40px;border-radius:9999px;background:white;object-fit:cover}
+    .brand span{font-weight:700;font-size:1.05rem}
+    .menu-btn{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border:none;background:transparent;color:white}
+    .mobile{display:none}
+    @media(max-width:768px){.desktop{display:none}.mobile{display:block}}
+    section{padding:56px 0}
+    h1,h2,h3{margin:0 0 8px 0}
+    h1{font-size:clamp(1.8rem,3.2vw,3.2rem);color:var(--navy);line-height:1.1}
+    h2{font-size:1.6rem;color:var(--navy)}
+    h3{font-size:1.05rem;color:var(--navy)}
+    p{margin:8px 0 0 0;line-height:1.55}
+    .input, textarea{ width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:12px;font-size:.95rem }
+    textarea{min-height:120px;resize:vertical}
+    .muted{color:var(--muted);font-size:.9rem}
+    .hero-art{border-radius:24px;padding:40px;background:linear-gradient(135deg,var(--sea),var(--teal));display:flex;align-items:center;justify-content:center;box-shadow:inset 0 0 40px rgba(0,0,0,.06)}
+    .hero-art img{width:220px;height:220px;border-radius:9999px;background:white;object-fit:cover}
+    footer{background:var(--navy);color:white}
+    footer a{color:rgba(255,255,255,.9);text-decoration:none}
+    footer a:hover{color:white;text-decoration:underline}
+    .step{display:flex;align-items:center;gap:12px}
+    .bubble{width:36px;height:36px;border-radius:9999px;background:var(--teal);color:white;display:flex;align-items:center;justify-content:center;font-weight:700}
+    .mt-4{margin-top:1rem}.mt-6{margin-top:1.5rem}.mt-8{margin-top:2rem}.mt-10{margin-top:2.5rem}.mt-14{margin-top:3.5rem}
+    .mb-6{margin-bottom:1.5rem}
+  </style>
+  <script>
+    function toggleMenu(){
+      const m=document.getElementById('mobileNav');
+      m.style.display = (m.style.display==='block' ? 'none' : 'block');
+    }
+  </script>
+</head>
+<body>
+  <div class="crisis">
+    <div class="container" style="padding:8px 16px;display:flex;gap:10px;align-items:center;">
+      <span style="font-weight:700">Safety:</span>
+      <span>If you are in crisis, call or text 988 (24/7). If this is an emergency, call 911.</span>
+    </div>
+  </div>
+
+  <header>
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;padding:12px 0;">
+      <a href="#home" class="brand">
+        <img src="/logo.png" alt="Rhody Haven logo" />
+        <span>Rhody Haven</span>
+      </a>
+      <nav class="nav desktop">
+        <a href="#programs">Programs</a>
+        <a href="#admissions">Admissions</a>
+        <a href="#model">Our Model</a>
+        <a href="#donate">Donate</a>
+        <a href="#careers">Careers</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="menu-btn mobile" aria-label="Open menu" onclick="toggleMenu()">☰</button>
+    </div>
+    <div id="mobileNav" class="mobile" style="display:none;border-top:1px solid rgba(255,255,255,.15);">
+      <div class="container" style="padding:12px 0;display:flex;flex-direction:column;gap:8px">
+        <a href="#programs" onclick="toggleMenu()">Programs</a>
+        <a href="#admissions" onclick="toggleMenu()">Admissions</a>
+        <a href="#model" onclick="toggleMenu()">Our Model</a>
+        <a href="#donate" onclick="toggleMenu()">Donate</a>
+        <a href="#careers" onclick="toggleMenu()">Careers</a>
+        <a href="#contact" onclick="toggleMenu()">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <section id="home">
+    <div class="container">
+      <div class="grid grid-2" style="align-items:center;gap:28px">
+        <div>
+          <h1>A healing home for youth in Rhode Island</h1>
+          <p class="mt-4">Rhody Haven is a nonprofit Psychiatric Residential Treatment Facility (PRTF) providing trauma-informed, family-centered care.</p>
+          <div class="mt-6" style="display:flex;gap:12px;flex-wrap:wrap">
+            <a class="btn btn-primary" href="#admissions">Start Admissions →</a>
+            <a class="btn btn-outline" href="#donate">Donate ♥</a>
+          </div>
+        </div>
+        <div class="hero-art">
+          <img src="/logo.png" alt="Rhody Haven" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="programs">
+    <div class="container">
+      <h2 class="mb-6">Programs</h2>
+      <div class="grid grid-4">
+        <div class="card"><h3>PRTF Residential Care</h3><p class="muted mt-4">Safe, structured care with 24/7 nursing support.</p></div>
+        <div class="card"><h3>Education &amp; Skills</h3><p class="muted mt-4">Academics coordination and life-skills practice.</p></div>
+        <div class="card"><h3>Family Engagement</h3><p class="muted mt-4">Family sessions and reunification planning.</p></div>
+        <div class="card"><h3>Aftercare &amp; Step-Down</h3><p class="muted mt-4">Care coordination and community linkages.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="admissions">
+    <div class="container">
+      <h2 class="mb-6">Admissions</h2>
+      <div class="grid grid-3">
+        <div class="card">
+          <div class="step"><div class="bubble">1</div><h3>Email Us</h3></div>
+          <p class="muted mt-4">Start by emailing <a href="mailto:theRhodyhaven@gmail.com">theRhodyhaven@gmail.com</a> with a brief clinical summary and current supports.</p>
+        </div>
+        <div class="card">
+          <div class="step"><div class="bubble">2</div><h3>Send Packet</h3></div>
+          <p class="muted mt-4">Referral packet (clinical summary, meds list, IEP/504).</p>
+        </div>
+        <div class="card">
+          <div class="step"><div class="bubble">3</div><h3>Schedule Arrival</h3></div>
+          <p class="muted mt-4">Coordinate arrival and welcome meeting with family and team.</p>
+        </div>
+      </div>
+      <div class="mt-6">
+        <a class="btn btn-outline" href="mailto:theRhodyhaven@gmail.com?subject=Admissions%20Inquiry">Email Admissions</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="model">
+    <div class="container">
+      <h2 class="mb-6">Our Model</h2>
+      <div class="grid grid-2">
+        <div class="card">
+          <h3>Crisis-Intervention</h3>
+          <ul class="muted mt-4">
+            <li>TCI (milieu roles) — semiannual competencies</li>
+            <li>CPI (clinical/medical) — annual recert</li>
+            <li>Least-restrictive, trauma-informed care</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Clinical &amp; Family Care</h3>
+          <ul class="muted mt-4">
+            <li>Psychiatric evaluation &amp; medication management</li>
+            <li>Individual, group, and family therapy</li>
+            <li>Education coordination &amp; transition planning</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="donate">
+    <div class="container">
+      <h2 class="mb-6">Donate</h2>
+      <div class="card" style="padding:8px">
+        <iframe title="Givebutter Donate" src="https://givebutter.com/embed/ndrzi6" loading="lazy"
+          style="width:100%;height:720px;border:0;border-radius:16px;overflow:hidden"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowpaymentrequest></iframe>
+      </div>
+      <p class="muted mt-4">If the widget doesn’t load, use the secure link:
+        <a href="https://givebutter.com/ndrzi6" target="_blank" rel="noreferrer">https://givebutter.com/ndrzi6</a>
+      </p>
+    </div>
+  </section>
+
+  <section id="careers">
+    <div class="container">
+      <h2 class="mb-6">Careers</h2>
+      <p class="muted">We’re building a compassionate, skilled team. Email your resume (PDF) and a brief note to
+        <a href="mailto:theRhodyhaven@gmail.com?subject=Career%20Inquiry"> theRhodyhaven@gmail.com</a>.
+        Below are initial roles—ask about per-diem and part-time options.
+      </p>
+      <div class="grid grid-2 mt-6">
+        <div class="card"><h3>Program Director (PRTF)</h3><p class="muted mt-4">Leads residential program; oversees licensing, staffing, and outcomes.</p><a class="btn btn-primary mt-6" href="mailto:theRhodyhaven@gmail.com?subject=Application:%20Program%20Director">Apply via Email</a></div>
+        <div class="card"><h3>Clinical Director</h3><p class="muted mt-4">Supervises clinicians; treatment planning, QA, and family engagement.</p><a class="btn btn-primary mt-6" href="mailto:theRhodyhaven@gmail.com?subject=Application:%20Clinical%20Director">Apply via Email</a></div>
+        <div class="card"><h3>Lead Clinician</h3><p class="muted mt-4">Provides therapy; supports milieu teams; coordinates care.</p><a class="btn btn-primary mt-6" href="mailto:theRhodyhaven@gmail.com?subject=Application:%20Lead%20Clinician">Apply via Email</a></div>
+        <div class="card"><h3>Milieu Associates</h3><p class="muted mt-4">Direct-care staff trained in TCI/CPI; daily routines and skills practice.</p><a class="btn btn-primary mt-6" href="mailto:theRhodyhaven@gmail.com?subject=Application:%20Milieu%20Associate">Apply via Email</a></div>
+        <div class="card"><h3>RN / LPN (24/7 Nursing)</h3><p class="muted mt-4">Medication administration, health coordination, on-call coverage.</p><a class="btn btn-primary mt-6" href="mailto:theRhodyhaven@gmail.com?subject=Application:%20Nursing">Apply via Email</a></div>
+        <div class="card"><h3>Education Liaison</h3><p class="muted mt-4">Coordinates academics, IEP/504, and school re-entry.</p><a class="btn btn-primary mt-6" href="mailto:theRhodyhaven@gmail.com?subject=Application:%20Education%20Liaison">Apply via Email</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <h2 class="mb-6">Contact</h2>
+      <div class="grid grid-2">
+        <div class="card">
+          <div class="muted">Email us at <a href="mailto:theRhodyhaven@gmail.com">theRhodyhaven@gmail.com</a>.</div>
+          <form class="mt-6 grid" style="gap:12px"
+                action="https://formsubmit.co/theRhodyhaven@gmail.com"
+                method="POST">
+            <!-- FormSubmit required/optional hidden fields -->
+            <input type="hidden" name="_subject" value="New inquiry from Rhody Haven website" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_next" value="/thank-you.html" />
+            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+
+            <!-- Visible fields -->
+            <input class="input" name="name" placeholder="Your name" required />
+            <input class="input" type="email" name="email" placeholder="Your email" required />
+            <input class="input" name="subject" placeholder="Subject" />
+            <textarea class="input" name="message" placeholder="How can we help?" required></textarea>
+            <button class="btn btn-primary" type="submit">Send Message</button>
+            <div class="muted">Submissions go to theRhodyhaven@gmail.com. No phone is collected.</div>
+
+            <!-- Fallback link if FormSubmit ever fails -->
+            <p class="muted">Or email us directly:
+              <a href="mailto:theRhodyhaven@gmail.com?subject=Website%20Inquiry">Open email app</a>
+            </p>
+          </form>
+        </div>
+        <div class="card">
+          <h3>Mailing Address</h3>
+          <p class="muted mt-4">Rhode Island (final address TBD)</p>
+          <p class="muted mt-6">Media or partnership inquiries:
+            <a href="mailto:theRhodyhaven@gmail.com?subject=Partnership%20Inquiry"> theRhodyhaven@gmail.com</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="mt-14">
+    <div class="container" style="padding:32px 0;display:grid;gap:24px">
+      <div style="display:flex;align-items:center;gap:12px">
+        <img src="/logo.png" alt="logo" style="width:36px;height:36px;border-radius:9999px;background:white;object-fit:cover" />
+        <div style="font-weight:700">Rhody Haven</div>
+      </div>
+      <div class="muted" style="color:rgba(255,255,255,.9)">
+        © <span id="y"></span> Rhody Haven — a Rhode Island nonprofit corporation.
+      </div>
+      <div style="display:grid;gap:6px" class="muted">
+        <strong style="color:white">Compliance</strong>
+        <a href="#">Children’s Bill of Rights</a>
+        <a href="#">Mandated Reporting</a>
+        <a href="#">Incident &amp; Grievance Process</a>
+        <a href="#">Privacy Notice</a>
+      </div>
+      <div style="display:grid;gap:6px" class="muted">
+        <strong style="color:white">Connect</strong>
+        <a href="mailto:theRhodyhaven@gmail.com">theRhodyhaven@gmail.com</a>
+        <a href="#donate">Donate</a>
+      </div>
+    </div>
+    <script>document.getElementById('y').textContent=(new Date()).getFullYear()</script>
+  </footer>
+</body>
+</html>
